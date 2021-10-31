@@ -19,8 +19,8 @@ public class ShareLaneTest {
         driver.findElement(By.name("zip_code")).sendKeys("111111");
         driver.findElement(By.xpath("//*[@value='Continue']")).click();
         driver.findElement(By.xpath("//*[@value='Register']")).click();
-       /* driver.findElement(By.xpath("//*[@value='error_message']")).getText();
-        Assert.assertEquals(text,"Oops, error on page");*/
+        String text = driver.findElement(By.xpath("//*[@class='error_message']")).getText();
+        Assert.assertEquals(text,"Oops, error on page. Some of your fields have invalid data or email was previously used");
         driver.quit();
     }
     @Test
